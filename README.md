@@ -2,6 +2,11 @@
 
 Este repositorio contiene un modelo de machine learning para predecir el precio de vehículos de segunda mano. El modelo utiliza un enfoque de regresión por cuantiles para no solo estimar el precio más probable (mediana), sino también para proporcionar un rango de precios (percentiles 10 y 90), ofreciendo una visión más completa de la valoración.
 
+ Problema de Negocio
+El precio de los vehículos usados varía ampliamente en función de su antigüedad, marca, kilometraje y otros factores. Esto genera incertidumbre tanto para compradores como para vendedores, dificultando negociaciones, préstamos y evaluaciones de activos.
+
+Este modelo busca reducir esa incertidumbre ofreciendo predicciones explicables y realistas que respaldan decisiones comerciales y financieras.
+
 ---
 
 ##  **Visión General del Proyecto**
@@ -13,6 +18,12 @@ El objetivo es proporcionar una herramienta robusta y precisa para la tasación 
 * **Empresas del sector automotriz**: Para la gestión de inventario y la valoración de activos.
 
 ---
+
+**¿Por qué usar regresión cuantílica?**
+A diferencia de un modelo clásico que da solo un precio estimado, nuestro enfoque entrega un **rango de precios sugerido**, lo que:
+- Ofrece **más contexto** para negociación.
+- Permite **gestionar la incertidumbre** del valor.
+- Facilita decisiones en créditos, garantías y remarketing.
 
 ## 🛠️ **Detalles del Modelo**
 
@@ -32,6 +43,11 @@ El objetivo es proporcionar una herramienta robusta y precisa para la tasación 
 
 * **Validación**: El modelo fue evaluado utilizando una estrategia de validación cruzada `GroupKFold` para garantizar que las predicciones sean generalizables a vehículos no vistos durante el entrenamiento, evitando el sobreajuste.
 
+**Interpretabilidad**
+
+El modelo incorpora técnicas de explicabilidad como:
+- **Importancia por Permutación**: Identifica las variables con mayor impacto.
+- **Partial Dependence Plots (PDP)**: Visualiza cómo afectan variables como edad o kilometraje al precio.
 ---
 
 ## 📈 **Rendimiento del Modelo**
