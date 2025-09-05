@@ -62,4 +62,8 @@ Los artefactos del modelo se encuentran en:
 2.  **Reporte y Anomalías**:
     * `report.json`: Contiene las métricas de rendimiento detalladas del conjunto de prueba.
     * `anomalies_top.csv`: Un CSV con los vehículos que el modelo identificó como anómalos o con los mayores errores de predicción.
+  
+3. **Data set**:
+   * `car_sales_data`: Mohsen Behdani en Kaggle https://www.kaggle.com/datasets/msnbehdani/mock-dataset-of-second-hand-car-sales?resource=download
+     
 
