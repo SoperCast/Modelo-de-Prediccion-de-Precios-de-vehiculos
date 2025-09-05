@@ -1,0 +1,57 @@
+
+🧾 Reporte de Resultados - Modelo de Predicción de Precios de Vehículos Usados
+
+
+ Proyecto: car_pricing_pipeline_.ipynb
+
+ Objetivo:
+Desarrollar un modelo predictivo de precios de vehículos usados basado en datos históricos de ventas, incorporando un enfoque cuantílico para estimar un rango de precios realista (percentiles 10, 50 y 90).
+
+ Variable objetivo: Sales_Price (Precio de Venta)
+ Tipo de problema: Regresión Cuantílica (P10, P50, P90)
+ Fuente de datos: Dataset simulado de ventas de autos (Kaggle)
+
+ Métricas de Evaluación (modelo P50 - mediana):
+- MAE (Error Absoluto Medio): ~1174.34
+- MAPE (Error Porcentual Absoluto Medio): ~9.41%
+- R² Score (Entrenamiento): ~0.94
+- R² Score (Prueba): ~0.86
+- Cobertura P10–P90: ~80.1%
+- Ancho promedio del intervalo de predicción (P90 - P10): ~3112.98 USD
+
+ Algoritmo utilizado:
+GradientBoostingRegressor (Scikit-learn) configurado para regresión cuantílica.
+Tres modelos entrenados para los percentiles 10, 50 y 90.
+
+ Características principales utilizadas:
+- Age (antigüedad del vehículo)
+- Mileage (kilometraje)
+- Fuel_Type
+- Make (marca)
+- Model (modelo)
+- Engine (motor)
+- Transmission
+- Location
+
+Técnicas adicionales aplicadas:
+- ColumnTransformer para preprocesamiento automático (numéricas y categóricas)
+- GroupKFold por Make|Model|Year para evitar data leakage
+- Explicabilidad: Permutation Importance + Partial Dependence Plots
+- Análisis de residuos y errores
+- Detección de anomalías (Residuals + IsolationForest)
+
+ Conclusión:
+El modelo P50 ofrece una predicción robusta y precisa del precio esperado de vehículos usados, mientras que los modelos P10 y P90 brindan un intervalo de confianza útil para la toma de decisiones comerciales. Los resultados son consistentes con el comportamiento del mercado y el modelo está listo para pruebas en entornos productivos.
+
+ Artefactos generados:
+- `q10.pkl`, `q50.pkl`, `q90.pkl`: Modelos serializados
+- `report.json`: Métricas de validación
+- `anomalies_top.csv`: Casos sospechosos
+- `EDA_Report_Car_Pricing_FULL.pdf`: Análisis exploratorio
+- `EDA_Summary_Executive.txt`: Resumen ejecutivo
+
+ Recomendaciones a futuro:
+- Incluir variables adicionales como precio de mercado externo o historial de mantenimiento.
+- Explorar modelos alternativos como LightGBM con restricciones de monotonicidad.
+- Integrar en un dashboard o API REST para despliegue final.
+
